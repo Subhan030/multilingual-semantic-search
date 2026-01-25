@@ -7,10 +7,8 @@ from sentence_transformers import SentenceTransformer
 embeddings = np.load("data/embeddings.npy")
 metadata = pd.read_csv("data/chunk_metadata.csv")
 
-# Load the same multilingual model
 model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
-# Build FAISS index
 dimension = embeddings.shape[1]
 index = faiss.IndexFlatL2(dimension)
 index.add(embeddings)
@@ -30,8 +28,7 @@ def semantic_search(query, top_k=3):
         })
     return results
 
-# Test query
-query = "employee benefits"
+query = "Social Security"
 results = semantic_search(query)
 
 print("\nQuery:", query)
