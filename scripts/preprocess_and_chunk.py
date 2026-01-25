@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-CHUNK_SIZE = 150 
+CHUNK_SIZE = 100
 df = pd.read_csv("data/documents.csv")
 
 def clean_text(text):
