@@ -1,70 +1,51 @@
-Multilingual Semantic Search with Cross-Lingual RAG
+## Multilingual Semantic Search with Cross-Lingual RAG
 
-An interactive multilingual semantic search application that allows users to search documents by meaning rather than keywords, even across different languages.
-The app also supports Retrieval-Augmented Generation (RAG) using Groq LLMs to generate concise answers grounded strictly in retrieved content.
+This project implements a multilingual semantic search system that enables cross-lingual information retrieval using dense vector embeddings, FAISS similarity search, and Retrieval-Augmented Generation (RAG).
 
-Features
+The application allows users to query documents by semantic meaning rather than keyword matching, supporting English and Hindi cross-language search. It also provides an optional RAG pipeline powered by Groq large language models, generating answers strictly grounded in retrieved content.
 
-Cross-Lingual Semantic Search
+# Core Features
 
-Search English queries over Hindi documents (and vice versa)
+Multilingual semantic search with cross-lingual retrieval (English ↔ Hindi)
 
-Powered by multilingual sentence embeddings
+Dense vector embeddings using SentenceTransformers
 
-FAISS Vector Search
+FAISS vector indexing with cosine similarity for fast nearest-neighbor search
 
-Efficient similarity search using cosine similarity
+Sentence-level relevance extraction to reduce noisy results
 
-Sentence-Level Relevance
+Optional Retrieval-Augmented Generation (RAG) using Groq API
 
-Retrieves the most relevant 2–3 sentences instead of large chunks
+Language-aware answer generation based on query language
 
-Retrieval-Augmented Generation (RAG)
+Interactive web interface built with Streamlit
 
-Optional answer generation using Groq LLMs
+Deployment-ready architecture with secure API key handling
 
-Answers are grounded strictly in retrieved context
+# Technical Overview
 
-Language-Aware Answers
+The system follows a modern vector-based information retrieval architecture:
 
-RAG answers are generated in the query’s language
+Document ingestion and chunking
 
-User-Friendly Interface
+Multilingual embedding generation
 
-Paste text, upload .txt files, or load sample documents
+Vector indexing using FAISS
 
-Deployment-Ready
+Semantic similarity search with cosine similarity
 
-Works locally and on Streamlit Cloud
+Sentence-level re-ranking
 
-How It Works
+Optional RAG-based answer synthesis
 
-Document Ingestion
-Documents are split into manageable chunks.
-
-Embedding
-Each chunk is converted into a multilingual vector representation.
-
-Vector Indexing
-FAISS is used with cosine similarity (inner product).
-
-Semantic Search
-Queries are embedded and matched against document vectors.
-
-Sentence Re-Ranking
-The most relevant sentences are extracted from matched chunks.
-
-Retrieval-Augmented Generation (Optional)
-Retrieved sentences are passed to a Groq LLM to generate a grounded answer.
-
-Tech Stack
+Technologies Used
 
 Python
 
-Streamlit – Interactive UI
+Streamlit
 
-SentenceTransformers – Multilingual embeddings
+SentenceTransformers
 
-FAISS (CPU) – Vector similarity search
+FAISS (CPU)
 
-Groq API – Fast LLM inference for RAG
+Groq API
