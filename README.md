@@ -5,17 +5,17 @@ The app also supports Retrieval-Augmented Generation (RAG) using Groq LLMs to ge
 
 Features
 
-Cross-lingual semantic search
+Cross-Lingual Semantic Search
 
 Search English queries over Hindi documents (and vice versa)
 
 Powered by multilingual sentence embeddings
 
-FAISS vector search
+FAISS Vector Search
 
 Efficient similarity search using cosine similarity
 
-Sentence-level relevance
+Sentence-Level Relevance
 
 Retrieves the most relevant 2–3 sentences instead of large chunks
 
@@ -25,46 +25,46 @@ Optional answer generation using Groq LLMs
 
 Answers are grounded strictly in retrieved context
 
-Language-aware answers
+Language-Aware Answers
 
 RAG answers are generated in the query’s language
 
-User-friendly UI
+User-Friendly Interface
 
 Paste text, upload .txt files, or load sample documents
 
-Deployment-ready
+Deployment-Ready
 
 Works locally and on Streamlit Cloud
 
 How It Works
 
-Document ingestion
-Documents are split into chunks
+Document Ingestion
+Documents are split into manageable chunks.
 
 Embedding
-Each chunk is converted into a multilingual vector representation
+Each chunk is converted into a multilingual vector representation.
 
-Vector indexing
-FAISS is used with cosine similarity (inner product)
+Vector Indexing
+FAISS is used with cosine similarity (inner product).
 
-Semantic search
-Queries are embedded and matched against document vectors
+Semantic Search
+Queries are embedded and matched against document vectors.
 
-Sentence re-ranking
-The most relevant sentences are extracted from matched chunks
+Sentence Re-Ranking
+The most relevant sentences are extracted from matched chunks.
 
-RAG (optional)
-Retrieved sentences are passed to a Groq LLM to generate an answer
+Retrieval-Augmented Generation (Optional)
+Retrieved sentences are passed to a Groq LLM to generate a grounded answer.
 
 Tech Stack
 
 Python
 
-Streamlit – interactive UI
+Streamlit – Interactive UI
 
-SentenceTransformers – multilingual embeddings
+SentenceTransformers – Multilingual embeddings
 
-FAISS (CPU) – vector similarity search
+FAISS (CPU) – Vector similarity search
 
-Groq API – fast LLM inference for RAG
+Groq API – Fast LLM inference for RAG
