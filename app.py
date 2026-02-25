@@ -164,11 +164,7 @@ if st.button("Search") and query.strip():
         for r, idx in enumerate(indices[0]):
             score = scores[0][r]
             if score >= SIMILARITY_THRESHOLD:
-                txt = best_sentences_from_chunk(
-                    st.session_state.dynamic_chunks[idx],
-                    query,
-                    top_n=3
-                )
+                txt = st.session_state.dynamic_chunks[idx]
                 results.append((txt, score))
 
         if not results:
