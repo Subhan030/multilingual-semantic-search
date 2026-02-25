@@ -10,7 +10,7 @@ st.set_page_config(
     layout="centered"
 )
 
-SIMILARITY_THRESHOLD = 0.25
+SIMILARITY_THRESHOLD = 0.20
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_AVAILABLE = GROQ_API_KEY is not None
@@ -73,13 +73,15 @@ def groq_rag_answer(query, retrieved_sentences):
                     "You are a question answering assistant.\n"
                     "Follow these steps strictly:\n"
                     "1. From the provided context, identify the relevant information that answers the question.\n"
-                    "2. Combine that information into a SHORT PARAGRAPH of 2–3 sentences.\n"
-                    "3. Translate the paragraph into ENGLISH if needed.\n\n"
+                    "2. Combine that information into a SHORT PARAGRAPH.\n"
+                    "3. Translate the paragraph into ENGLISH if needed.\n"
+                    "4. Be descriptive and provide a detailed answer.\n\n"
                     "Rules:\n"
                     "- The final answer MUST be in ENGLISH.\n"
                     "- The answer MUST contain at least TWO sentences.\n"
                     "- Do NOT copy the context verbatim if it is not English.\n"
                     "- Use ONLY information from the context.\n"
+                    
                     "- If the answer is not present, say: The provided documents do not contain this information."
                 )
             },
