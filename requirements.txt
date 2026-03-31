@@ -3,3 +3,7 @@ numpy
 sentence-transformers
 faiss-cpu
 groq
+fastapi
+uvicorn
+python-multipart
+requests
