@@ -1,3 +1,13 @@
+---
+title: Multilingual Semantic Search
+emoji: 🌍
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Multilingual Semantic Search with Cross-Lingual RAG
 
 This project implements a multilingual semantic search system that enables cross-lingual information retrieval using dense vector embeddings, FAISS similarity search, and Retrieval-Augmented Generation (RAG).
