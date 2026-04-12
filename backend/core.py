@@ -11,23 +11,19 @@ GROQ_AVAILABLE = GROQ_API_KEY is not None
 
 client = Groq(api_key=GROQ_API_KEY) if GROQ_AVAILABLE else None
 
-def load_model():
-    return SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
-
-# Load model globally on startup
-model = load_model()
+model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
 class EngineState:
     def __init__(self):
         self.index = None
         self.chunks = None
-
-# Global state for simplicity 
+        
 state = EngineState()
 
-def chunk_text(text, chunk_size=100):
+def chunk_text(text, chunk_size=70, overlap=15):
     words = text.split()
-    return [" ".join(words[i:i + chunk_size]) for i in range(0, len(words), chunk_size)]
+    step = max(1, chunk_size - overlap)
+    return [" ".join(words[i:i + chunk_size]) for i in range(0, len(words), step)]
 
 def build_faiss_index(text_chunks):
     embeddings = model.encode(text_chunks)

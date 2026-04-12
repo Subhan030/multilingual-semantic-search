@@ -9,7 +9,7 @@ import numpy as np
 app = FastAPI(title="Multilingual Semantic Search API")
 
 @app.post("/index/text")
-async def index_text(request: IndexTextRequest):
+def index_text(request: IndexTextRequest):
     if not request.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty")
     chunks = chunk_text(request.text)
@@ -36,7 +36,7 @@ async def index_file(file: UploadFile = File(...)):
     return {"message": f"Indexed {len(chunks)} chunks"}
 
 @app.post("/search", response_model=SearchResponse)
-async def search(request: SearchRequest):
+def search(request: SearchRequest):
     if state.index is None or state.chunks is None:
         raise HTTPException(status_code=400, detail="Please index a document first")
         

@@ -10,16 +10,13 @@ st.set_page_config(
     layout="centered"
 )
 
-SAMPLE_DOCUMENT = """
-गोरिल्ला बड़े और मुख्य रूप से शाकाहारी महान कपि होते हैं जो भूमध्यरेखीय अफ्रीका के उष्णकटिबंधीय जंगलों में रहते हैं।
-गोरिल्ला वंश को पूर्वी और पश्चिमी प्रजातियों में विभाजित किया गया है।
-
-गोरिल्ला वर्तमान में जीवित सबसे बड़े प्राइमेट होते हैं और आमतौर पर समूहों में रहते हैं, जिनका नेतृत्व एक सिल्वरबैक करता है।
-वे अपनी बुद्धिमत्ता और मजबूत सामाजिक संबंधों के लिए जाने जाते हैं।
-
-गोरिल्ला उप-सहारा अफ्रीका के विभिन्न ऊँचाई वाले क्षेत्रों में पाए जाते हैं।
-आवास विनाश और अवैध शिकार के कारण गोरिल्ला की कई प्रजातियाँ संकटग्रस्त हैं।
-"""
+# Read the sample document from the data directory
+sample_doc_path = os.path.join(os.path.dirname(__file__), "data", "sample_employee_benefits.txt")
+try:
+    with open(sample_doc_path, "r", encoding="utf-8") as f:
+        SAMPLE_DOCUMENT = f.read()
+except FileNotFoundError:
+    SAMPLE_DOCUMENT = "Sample document not found."
 
 st.title("🌐 Multilingual Semantic Search")
 st.write(
@@ -45,7 +42,7 @@ if st.button("Load sample document"):
     except Exception as e:
         st.error(f"Failed to connect to backend: {e}")
 
-query = st.text_input("Enter your query", placeholder="e.g. What is a gorilla?")
+query = st.text_input("Enter your query", placeholder="e.g. How much paid time off do I get?")
 
 use_rag = st.checkbox("Answer using retrieved context (RAG)")
 top_k = st.slider("Number of results", 1, 5, 3)
