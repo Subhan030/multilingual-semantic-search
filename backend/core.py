@@ -4,7 +4,7 @@ import faiss
 from sentence_transformers import SentenceTransformer
 from groq import Groq
 
-SIMILARITY_THRESHOLD = 0.20
+SIMILARITY_THRESHOLD = 0.21
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_AVAILABLE = GROQ_API_KEY is not None
