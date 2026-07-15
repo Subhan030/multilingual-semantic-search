@@ -10,8 +10,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-# Copy the backend code
+# Copy the backend code, app, data, and run script
 COPY ./backend /code/backend
+COPY ./app.py /code/app.py
+COPY ./data /code/data
+COPY ./run.sh /code/run.sh
 
-# Run the FastAPI server
-CMD ["uvicorn", "backend.api:app", "--host", "0.0.0.0", "--port", "7860"]
+RUN chmod +x /code/run.sh
+
+# Run the startup script (runs both frontend and backend)
+CMD ["/code/run.sh"]
