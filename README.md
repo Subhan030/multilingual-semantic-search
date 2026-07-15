@@ -1,4 +1,13 @@
 
+---
+title: Multilingual Semantic Search
+emoji: 🌍
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
 
 # Multilingual Semantic Search with Cross-Lingual RAG
 
